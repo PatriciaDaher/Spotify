@@ -4,7 +4,15 @@
 
 ## Project Overview
 
-Something amazing about spotify******************
+Spotify: Company Overview
+
+Founded on April 23, 2006, by Swedish entrepreneurs Daniel Ek and Martin Lorentzon, Spotify has grown into one of the world’s leading platforms for audio streaming and media services.
+
+Available across mobile, tablet, and laptop devices, Spotify offers users seamless access to a vast library of digital audio content — including music, podcasts, and recently, audiobooks.
+
+As of December 2024, Spotify reported over 678 million monthly active users, of which 268 million were paying subscribers, reaffirming its position as a dominant force in the global audio streaming market.
+
+
 - Analyzing data from 520 spotify users to understand what customer behaviors are indicators that lead to a Free User becoming a paid subscriber.
 We tackle this problem in three different ways:
 1- By creating and optimizing general supervised machine learning models to identify willingness to subscribe and  feature importance 
@@ -33,6 +41,13 @@ Spotify Analysis Project
 Open each Jupyter notebook and click run all
 
 ## Technologies and libraries Used :
+Database: CSV file accessed and managed using Pandas
+
+Backend: Python, Pandas, Scikit-learn, NumPy
+
+Visualization: Matplotlib, Seaborn, PCA plots for clustering insights
+
+Frontend / Presentation: Jupyter Notebook for development, graphs and visuals exported to PowerPoint for final presentation
 
 
 ## Data Used 
@@ -85,14 +100,39 @@ Our project raises several ethical considerations related to data usage:
 We believe that transparent data analysis can help consumers and industry professionals make more informed decisions while being mindful of these ethical considerations.Bias Mitigation was addressed by critically evaluating data sources for fairness and transparency, and by cleaning the dataset in a considerate manner, minimizing skewed representations. Transparency was maintained by thoroughly documenting all processes, allowing for clear auditability and reproducibility.
 
 ## Key Insights
-*************************************
+Key Insights from Spotify Clustering Analysis
+Target Demographics
+
+- The majority of users fall within the 25–35 age range, making them a core segment for engagement and subscription strategies.
+
+- Women make up the largest user group, but users identifying as Gender "Other" also represent a notable share and should be considered in inclusive marketing efforts.
+
+Interaction Behavior
+
+- Evening and night-time listening is the most common, suggesting opportunities to push content during off-peak hours.
+
+ - Users who stream on devices other than smartphones (e.g., smart speakers, laptops) show a higher likelihood of becoming premium subscribers.
+
+- Streaming during workouts, travel, or relaxation strongly correlates with subscription intent, suggesting these contexts drive value perception.
+
+Content Consumption
+
+- Music is the dominant content type, with far more engagement than podcasts.
+
+- The genre "Melody" ranks highest in popularity among users across all clusters.
+
+- There’s a strong case for offering exclusive music or playlist features to paying subscribers to boost satisfaction and retention.
+
 
 
 ## Technologies Used
-- **Database**: **********
-- **Backend**: **************
-- **Visualization**: ********************
-- **Frontend**: ****************
+-Database: CSV file accessed and managed using Pandas
+
+Backend: Python, Pandas, Scikit-learn, NumPy
+
+Visualization: Matplotlib, Seaborn, PCA plots for clustering insights
+
+Frontend / Presentation: Jupyter Notebook for development, graphs and visuals exported to PowerPoint for final presentation
 
 ## Project Contributors
 - Sade Beckles
@@ -100,15 +140,8 @@ We believe that transparent data analysis can help consumers and industry profes
 - Arisleyda Reyes
 
 ## Data Sources
-Christie's Auction House website: 
-Auction data specifically from Christie's Hong Kong March 2025 Handbags Online sale titled : Handbags Online: The Hong Kong Edit https://onlineonly.christies.com/s/handbags-online-hong-kong-edit/lots/3721)
-**********************************************************
 
 ## References for Data and Code
-All data in the csv files and database has been extracted from 
-
-Christie's auction results for Christie's Hong Kong March 2025 Online Handbags sale titled : Handbags Online: The Hong Kong Edit  https://www.christies.com/en/results
-*****************************************************************
 
 All code in Spotify.jpynb has been extracted from ChatGbt and Deep Seek, tweeked by Deepseek, and adjusted by the project contributors.
 Chat Gbt Website: https://chatgpt.com/
