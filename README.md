@@ -6,29 +6,44 @@
 
 Something amazing about spotify******************
 - Analyzing data from 520 spotify users to understand what customer behaviors are indicators that lead to a Free User becoming a paid subscriber.
-We tackle this problem by comparing behaviors of non-subscribers to those of subscribers by measuring 7 factors: age, gender, Spotify usage, prefered listening content, music time slot, music influential mood, music listening frequency.
-We conduct these measurments via clustering and comparing graphs
-The result is 14 scatter plots, where 7 plots examining the 7 factors in the non-subscriber group compared with 7 plots examining the same factors in the subscriber group.
+We tackle this problem in three different ways:
+1- By creating and optimizing general supervised machine learning models to identify willingness to subscribe and  feature importance 
+2- By Compartmanalizing the data into three different categories to explore the Demographics of its users, Their Interaction with the app, as well as the content of most interest to them. 
+3- By zooming in on certain features such as mood 
 
-Additionally, we are studying the subscriber group to identify which type of subscription seems to be the most popular
-*********************
+The factors we have explored throught this project include: age, gender, Spotify usage, prefered listening content, music time slots, music influential mood, music listening frequency.
+
+We conduct these measurments in a variety of methods, involving unsupervised machine learning such as K-means, clustering, PCA and comparing graphs. We also applied suppervised machine learning such as neural networks and random forrest to understand willing subscriber groups as well as important features to consider. 
 
 ## Repository Contents
 ```
-Spotify
-|_ README.md #readme file containing information about the project 
-|_ Spotify_data.csv # The data file
-|_ Spotify.ipynb #jupyter notebook
-|_ Spotify_Machine_Learning.ipynb #jupyter notebook
-
+Spotify Analysis Project
+├── README.md                        # Project overview and documentation
+├── Resources/                       # Folder containing data and additional resources
+│   ├── refined_numbered_data.csv    # Processed dataset
+│   └── Spotify_data.csv             # Original dataset
+├── 3 Way Analysis Demographic Interaction Content.ipynb  # Jupyter notebook for demographic analysis
+├── Spotify Feature Analysis.ipynb   # Jupyter notebook for feature analysis
+├── Supervised Machine Learning and ETL.ipynb  # Jupyter notebook for ML and ETL processes
+├── FeatureImportance.h5             # Saved model weights (HDF5 format)
+├── subscribervsunsubscriber.h5      # Saved model weights (HDF5 format)
+└── Willingnesstosubscribe.h5        # Saved model weights (HDF5 format)
 ```
 ## How to Use and Interact with the Project
-*************
-### Setup and Installation
-************
+Open each Jupyter notebook and click run all
 
-## Data Collection, Cleaning  and Transformation
-1. **Data Sources**: Koggle: --------*************************
+## Technologies and libraries Used :
+
+
+## Data Used 
+
+
+## Data Sourse 
+Kaggle: link ******************
+
+## ETL 
+
+
 2. **Data Cleaning and Transformation**: Used Word, Excel, Python and Pandas to create a clean csv:**************************
    - Cleaned csv by removing irrelevant lots, converting currency from HKD to USD, and Splitting the Estimate column into Lower Estimate and Higher Estimate. ​***********
    - Created a price category classifying sales as passed, below, within, or above estimate
