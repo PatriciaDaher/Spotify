@@ -30,6 +30,7 @@ Spotify Analysis Project
 ├── Resources/                       # Folder containing data and additional resources
 │   ├── refined_numbered_data.csv    # Processed dataset
 │   └── Spotify_data.csv             # Original dataset
+├── SpotifyPowerpoint.pdf            # Powerpoint Presentation
 ├── 3 Way Analysis Demographic Interaction Content.ipynb  # Jupyter notebook for demographic analysis
 ├── Spotify Feature Analysis.ipynb   # Jupyter notebook for feature analysis
 ├── Supervised Machine Learning and ETL.ipynb  # Jupyter notebook for ML and ETL processes
@@ -40,14 +41,27 @@ Spotify Analysis Project
 ## How to Use and Interact with the Project
 Open each Jupyter notebook and click run all
 
-## Technologies and libraries Used :
-Database: CSV file accessed and managed using Pandas
+## Technologies and libraries Used:
 
-Backend: Python, Pandas, Scikit-learn, NumPy
+### 1- Data Handling
+1- Pandas (pd): Primary tool for data manipulation (filtering, cleaning, transforming)
+2- NumPy (np): Numerical operations support
+3- Pathlib (Path): File path management
+### 2- Machine Learning
+1- Scikit-learn (sklearn):
+a. train_test_split (data splitting)
+b. StandardScaler (feature scaling)
+c. MultiLabelBinarizer (handling multi-label categorical data)
+d. RandomForestClassifier (feature importance analysis)
+e. confusion_matrix, classification_report (evaluation)
+### Deep Learning
+TensorFlow (tf):
+a. Keras API for neural networks (Sequential, Dense layers)
+b. Binary classification models (sigmoid output)
+### Data Processing
+a. ColumnTransformer & Pipeline (modular preprocessing)
+b. OneHotEncoder (categorical variable handling)
 
-Visualization: Matplotlib, Seaborn, PCA plots for clustering insights
-
-Frontend / Presentation: Jupyter Notebook for development, graphs and visuals exported to PowerPoint for final presentation
 
 
 ## Data Used 
@@ -89,9 +103,6 @@ Visualization 5: Leather
 *******************************************
 
 ## Ethical Considerations
-
-
-Our project raises several ethical considerations related to data usage:
 
 1. **Data Privacy**: We have been careful to  use publicly available anonymized Spotify consumer data that will not compromise the listener's privacy, ensuring no sensitive user information was exposed.
 
