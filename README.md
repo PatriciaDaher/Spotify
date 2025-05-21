@@ -4,14 +4,7 @@
 
 ## Project Overview
 
-Spotify: Company Overview
-
-Founded on April 23, 2006, by Swedish entrepreneurs Daniel Ek and Martin Lorentzon, Spotify has grown into one of the world’s leading platforms for audio streaming and media services.
-
-Available across mobile, tablet, and laptop devices, Spotify offers users seamless access to a vast library of digital audio content — including music, podcasts, and recently, audiobooks.
-
-As of December 2024, Spotify reported over 678 million monthly active users, of which 268 million were paying subscribers, reaffirming its position as a dominant force in the global audio streaming market.
-
+Spotify was founded on April 23, 2006, by Swedish entrepreneurs Daniel Ek and Martin Lorentzon, Spotify has grown into one of the world’s leading platforms for audio streaming and media services. Available across mobile, tablet, and laptop devices, Spotify offers users seamless access to a vast library of digital audio content — including music, podcasts, and recently, audiobooks. As of December 2024, Spotify reported over 678 million monthly active users, of which 268 million were paying subscribers, reaffirming its position as a dominant force in the global audio streaming market.
 
 - Analyzing data from 520 spotify users to understand what customer behaviors are indicators that lead to a Free User becoming a paid subscriber.
 We tackle this problem in three different ways:
@@ -42,65 +35,71 @@ Spotify Analysis Project
 Open each Jupyter notebook and click run all
 
 ## Technologies and libraries Used:
+1. Data Handling : Pandas, NumPy, Pathlib
+2. ML: Scikit-learn (preprocessing, RF), TensorFlow/Keras (NN)
+3. Evaluation:	Confusion matrices, accuracy/loss metrics, permutation_importance: Feature analysis, silhouette_score: Cluster validation
+4. Storage:	CSV (input/output), HDF5 (model saving)
+5. Visualization: Matplotlib (plt): Basic plotting, Seaborn (sns): Statistical visualizations, Holoviews (hv) + HvPlot: Interactive dashboards, Bokeh (via hv.extension('bokeh')): Web-based interactivity
+6. Preprocessing: OneHotEncoder/LabelEncoder: Categorical data handling, MultiLabelBinarizer: Multi-category encoding, StandardScaler/MinMaxScaler: Feature scaling,ColumnTransformer: Mixed data type pipelines
+7. Modeling: RandomForestClassifier: Supervised learning, KMeans: Clustering, PCA: Dimensionality reduction
+8. Workflow Tools: train_test_split: Data splitting, Pipeline: Streamlined ML workflows
 
-### 1- Data Handling
-1- Pandas (pd): Primary tool for data manipulation (filtering, cleaning, transforming)
-2- NumPy (np): Numerical operations support
-3- Pathlib (Path): File path management
-### 2- Machine Learning
-1- Scikit-learn (sklearn):
-a. train_test_split (data splitting)
-b. StandardScaler (feature scaling)
-c. MultiLabelBinarizer (handling multi-label categorical data)
-d. RandomForestClassifier (feature importance analysis)
-e. confusion_matrix, classification_report (evaluation)
-### Deep Learning
-TensorFlow (tf):
-a. Keras API for neural networks (Sequential, Dense layers)
-b. Binary classification models (sigmoid output)
-### Data Processing
-a. ColumnTransformer & Pipeline (modular preprocessing)
-b. OneHotEncoder (categorical variable handling)
+### Data Source 
+exported Spotify data from Kaggle into a CSV file. Uploaded CSV file including 520 entries.
+
+### Data Features 
+1- Age
+2- Gender
+3- spotify_usage_period
+4- spotify_listening_device
+5- spotify_subscription_plan
+6- premium_sub_willingness
+7- preffered_premium_plan (Note: "Preferred" is misspelled as "Preffered")
+8- preferred_listening_content
+9- fav_music_genre (Short for "Favorite Music Genre")
+10- music_time_slot
+11- music_Influencial_mood (Note: "Influential" is misspelled as "Influencial")
+12- music_lis_frequency (Short for "Music Listening Frequency")
+13- music_expl_method (Short for "Music Exploration Method")
+14- music_recc_rating (Short for "Music Recommendation Rating")
+15- pod_lis_frequency (Short for "Podcast Listening Frequency")
+16- fav_pod_genre (Short for "Favorite Podcast Genre")
+17- preffered_pod_format (Misspelled as "Preffered")
+18- pod_host_preference
+19- preffered_pod_duration (Misspelled as "Preffered")
+20- pod_variety_satisfaction
+
+## Data Transformation
+### Step 1: Feature Selection
+Removed Irrelevant Columns:
+Dropped podcast-related and overly specific columns (e.g., preffered_pod_format, pod_host_preference).
+Kept core features like Age, Gender, spotify_usage_period, music_recc_rating, etc.
+
+### Step 2: Categorical Encoding & Feature Engineering
+A. Ordinal Encoding
+spotify_usage_period:
+Mapped to numerical values (e.g., "Less than 6 months" → 0, "More than 2 years" → 3).
+
+B. Multi-Label Binarization for several columns 
+- Split comma-separated entries (e.g., "Smartphone, Laptop").
+- Applied MultiLabelBinarizer() to create binary columns for each device.
+- Cleaned inconsistent entries (e.g., "Classical and melody" → "Classical, Melody").
+- Applied MultiLabelBinarizer() to split multi-value entries.
+
+C. One-Hot Encoding using pd.get_dummies() for Categorical columns 
+
+D. Numeric Conversion
+Converted to a count of exploration methods per user.
+
+### Step 3: Data Loading
+Final Refined Dataset:
+Dropped intermediate variety columns (e.g., music_genre_variety).
+Saved as refined_numbered_data.csv for model training.
+
+## Visualizations & Interactions  
 
 
 
-## Data Used 
-
-
-## Data Sourse 
-Kaggle: link ******************
-
-## ETL 
-
-
-2. **Data Cleaning and Transformation**: Used Word, Excel, Python and Pandas to create a clean csv:**************************
-   - Cleaned csv by removing irrelevant lots, converting currency from HKD to USD, and Splitting the Estimate column into Lower Estimate and Higher Estimate. ​***********
-   - Created a price category classifying sales as passed, below, within, or above estimate
-3. **Database Creation**: Stored the cleaned DataFrame in a SQLite database****************
-
-
-## Database
-The Sqlite database contains auction data with information about lots number, brand, type, color, leather, hardware, year manufactured, estimates, and realized prices.**********
-
-
-## Visualizations & Interactions  (HTML Content)   
-
-2- **Analysis Dropdown Menu displaying a total of 9 charts**
-Visualizations 1: General Sale Performance
-b- Bar Chart 1 Lot Sales Relative to Estimates
-c- Bar Chart 2 Top 10 Most Expensive Handbags
-Visualizations 2: General Sale Results by BRAND
-	a- Bar Chart 1: Total Sales By Brand 
-	b- Bar Chart 2: Average Sales by Brand
-Visualizations 3: Average prices by Brand and Year
-	a- Plot Chart 1: Average Price Results by Brand per Year Manufactured
-Visualizations 4: Price results by COLOR
-	a- Bar Chart 1: Average Auction Price by Color
-	b- Plot Chart 2: Price Realized for Each Bag by Brand Based on Color
-	b- Plot Chart 3: Average Price Realized by Brand Based on Color
-Visualization 5: Leather
-   a- Bar Chart 1: Average Price by Leather type
-*******************************************
 
 ## Ethical Considerations
 
@@ -113,37 +112,80 @@ We believe that transparent data analysis can help consumers and industry profes
 ## Key Insights
 Key Insights from Spotify Clustering Analysis
 Target Demographics
-
 - The majority of users fall within the 25–35 age range, making them a core segment for engagement and subscription strategies.
-
 - Women make up the largest user group, but users identifying as Gender "Other" also represent a notable share and should be considered in inclusive marketing efforts.
-
 Interaction Behavior
-
 - Evening and night-time listening is the most common, suggesting opportunities to push content during off-peak hours.
-
  - Users who stream on devices other than smartphones (e.g., smart speakers, laptops) show a higher likelihood of becoming premium subscribers.
-
 - Streaming during workouts, travel, or relaxation strongly correlates with subscription intent, suggesting these contexts drive value perception.
-
 Content Consumption
-
 - Music is the dominant content type, with far more engagement than podcasts.
-
 - The genre "Melody" ranks highest in popularity among users across all clusters.
-
 - There’s a strong case for offering exclusive music or playlist features to paying subscribers to boost satisfaction and retention.
 
 
+## Analysis
+### 1. Spotify User Behavior Models - SUPERVISED MACHINE LEARNING ETL
+## Overview
+We built three machine learning models to understand Spotify user behavior, focusing on subscription patterns and willingness to pay for premium services. The models were trained on a dataset of 520 Spotify users with various demographic and usage characteristics.
+This analysis provides Spotify with actionable insights to improve conversion rates and better understand their user base's subscription dynamics.
 
-## Technologies Used
--Database: CSV file accessed and managed using Pandas
+#### Model 1: Subscriber vs Non-Subscriber Classification
+Accuracy: The neural network achieved approximately 75% accuracy in distinguishing between premium and free subscribers.
+Key Findings:The model effectively learned patterns that differentiate paying subscribers from free users.
+The 75% accuracy suggests there are clear behavioral and demographic differences between these groups.
+The relatively high accuracy indicates the selected features (usage patterns, device types, music preferences) are good predictors of subscription status.
+Business Implications:
+Spotify can use this model to identify free users who exhibit characteristics similar to paying subscribers for targeted conversion campaigns.
+The model helps understand what behaviors correlate with premium subscriptions, allowing Spotify to emphasize these features in marketing.
+Further optimization needs to take place to decrease loss and increase accuracy
 
-Backend: Python, Pandas, Scikit-learn, NumPy
+#### Model 2: Willingness to Subscribe Among Free Users
+Accuracy: The model predicting willingness to subscribe among free users achieved about 82% accuracy.
+Key Findings:
+The model successfully identified patterns distinguishing willing from unwilling free users.
+The slightly lower accuracy compared to Model 1 suggests willingness is more nuanced than actual subscription status.
+Analysis of incorrect predictions could reveal interesting edge cases where user behavior contradicts their stated willingness.
+Business Implications:
+This model helps identify the most promising free users for conversion efforts with an accuracy of 77% . further optimization could be done to achieve decreased loss and increased accuracy.
+Understanding characteristics of willing users allows for more precise targeting in marketing campaigns.
+The model can help design incentives tailored to specific user segments.
 
-Visualization: Matplotlib, Seaborn, PCA plots for clustering insights
+#### Model 3: Feature Importance for Willingness to Subscribe
+The Random Forest classifier identified these top predictors of willingness to subscribe:
+Age Groups:
 
-Frontend / Presentation: Jupyter Notebook for development, graphs and visuals exported to PowerPoint for final presentation
+Top predictors of willingness to subscribe:
+                       feature  importance
+0            music_recc_rating    0.098509
+17       Sadness or melancholy    0.056573
+3                   Smartphone    0.045902
+29                leisure time    0.041039
+26             While Traveling    0.039487
+41      spotify_usage_period_1    0.038576
+28             Workout session    0.036329
+5            number_of_devices    0.035398
+25                 Study Hours    0.035255
+19  Uplifting and motivational    0.031535
+
+Based on these results, I would aproach understanding cunsumer behavior through ratings as a primary feature, second customer segments who prefer sadness or melancholy as genre, third, smartphone users, as well as those who listen during leisure time and while traveling. 
+
+#### Recommendations for Spotify
+Targeted Conversion Campaigns:
+Focus on free users who match the "willing" profile identified by Model 2
+Offer time-limited trials to users showing behaviors similar to paying subscribers
+Product Development:
+Enhance features popular among paying subscribers
+Develop functionality that appeals to high-potential free users
+Marketing Messaging:
+Emphasize aspects valued by willing users in advertising
+Create device-specific campaigns (e.g., smartphone-focused ads)
+
+#### Limitations
+The dataset (520 entries) is relatively small for deep learning models
+Some categories had to be simplified during cleaning
+The models don't account for external factors like pricing changes or competitor offerings
+Cultural/regional differences weren't analyzed in this study
 
 ## Project Contributors
 - Sade Beckles
@@ -151,7 +193,6 @@ Frontend / Presentation: Jupyter Notebook for development, graphs and visuals ex
 - Arisleyda Reyes
 
 ## Data Sources
- 
  Kaggle Website: https://www.kaggle.com/code/arvindkhoda/spotify-user-behavior-dataset
 
 ## References for Data and Code
